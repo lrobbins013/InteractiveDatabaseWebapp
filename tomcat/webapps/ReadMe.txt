@@ -47,10 +47,14 @@ Workload:
 
 	Levi Hill was in charge of the database and database design. This includes the creation of the Conceptual schema, ER
 		diagram, and the Logical schema. Also Levi created and populated excel spreadsheets for every relation then exported 
-		them as csv files. Then he wrote createTables.java to read the csv files and write sql scripts to populate tables 
-		in sql. Finally Levi wrote three triggers for the relations to auto update related relations.
+		them as csv files. Then he wrote createTables.java to read the csv files and writes sql scripts to populate tables 
+		in sql. Finally Levi wrote three triggers for the relations to auto update related relations. The sql script 
+		@LoadDentistDB has all scripts and triggers inside to create/re-initialize the database.
 
 	Lucas Robbins was in charge of the web client. This included the creation of the html and jsp files for the website
 		and communicating between the web application layer and the database layer.
+
+
+	
 	
 	
