@@ -61,18 +61,8 @@ public final class service_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<div align=\"left\">\n");
       out.write("  <h2>Service Information</h2> \n");
       out.write("\n");
-      out.write("  <form action=\"querypages/supplies.jsp\">\n");
-      out.write("    <input type=\"submit\" value=\"Supplies list\">\n");
-      out.write("    ");
-
-      out.write("<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/>");
-    
-      out.write("\n");
-      out.write("  </form>\n");
-      out.write("  <br>\n");
-      out.write("\n");
-      out.write("  <form action=\"querypages/procedure.jsp\">\n");
-      out.write("    <input type=\"submit\" value=\"Available Procedures\">\n");
+      out.write("  <form action=\"querypages/procedure_info.jsp\">\n");
+      out.write("    <input type=\"submit\" value=\"Procedure Infromation\">\n");
       out.write("    ");
 
       out.write("<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/>");

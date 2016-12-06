@@ -9,16 +9,8 @@
 <div align="left">
   <h2>Service Information</h2> 
 
-  <form action="querypages/supplies.jsp">
-    <input type="submit" value="Supplies list">
-    <%
-      out.write("<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/>");
-    %>
-  </form>
-  <br>
-
-  <form action="querypages/procedure.jsp">
-    <input type="submit" value="Available Procedures">
+  <form action="querypages/procedure_info.jsp">
+    <input type="submit" value="Procedure Infromation">
     <%
       out.write("<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/>");
     %>
