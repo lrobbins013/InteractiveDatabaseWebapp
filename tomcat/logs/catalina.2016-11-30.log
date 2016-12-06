@@ -1,0 +1,332 @@
+Nov 30, 2016 9:04:05 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Nov 30, 2016 9:04:06 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 9:04:06 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1607 ms
+Nov 30, 2016 9:04:06 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Nov 30, 2016 9:04:06 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.1
+Nov 30, 2016 9:04:06 PM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Nov 30, 2016 9:04:08 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 9:04:09 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8009 java.net.BindException: Address already in use
+Nov 30, 2016 9:04:09 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8010 java.net.BindException: Address already in use
+Nov 30, 2016 9:04:09 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8011 java.net.BindException: Address already in use
+Nov 30, 2016 9:04:09 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8012 java.net.BindException: Address already in use
+Nov 30, 2016 9:04:09 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8013 java.net.BindException: Address already in use
+Nov 30, 2016 9:04:09 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8014 java.net.BindException: Address already in use
+Nov 30, 2016 9:04:09 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8015 java.net.BindException: Address already in use
+Nov 30, 2016 9:04:09 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8016 java.net.BindException: Address already in use
+Nov 30, 2016 9:04:09 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8017 java.net.BindException: Address already in use
+Nov 30, 2016 9:04:09 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8018 java.net.BindException: Address already in use
+Nov 30, 2016 9:04:09 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8019 java.net.BindException: Address already in use
+Nov 30, 2016 9:04:09 PM org.apache.jk.common.ChannelSocket init
+SEVERE: Can't find free port 8009 8019
+Nov 30, 2016 9:04:09 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/73  config=null
+Nov 30, 2016 9:04:09 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 3086 ms
+Nov 30, 2016 9:04:43 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 9:04:44 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Nov 30, 2016 9:04:44 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 9:04:44 PM org.apache.jk.common.ChannelSocket destroy
+INFO: Error shutting down the channel 8009 java.lang.NullPointerException
+Nov 30, 2016 9:04:44 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Failed shutdown of Apache Portable Runtime
+Nov 30, 2016 9:55:23 PM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Catalina.stop: 
+java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:395)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:337)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:415)
+
+Nov 30, 2016 10:03:47 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Nov 30, 2016 10:03:47 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:03:47 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 574 ms
+Nov 30, 2016 10:03:47 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Nov 30, 2016 10:03:47 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.1
+Nov 30, 2016 10:03:47 PM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Nov 30, 2016 10:03:48 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:03:48 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8009 java.net.BindException: Address already in use
+Nov 30, 2016 10:03:48 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8010 java.net.BindException: Address already in use
+Nov 30, 2016 10:03:48 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8011 java.net.BindException: Address already in use
+Nov 30, 2016 10:03:48 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8012 java.net.BindException: Address already in use
+Nov 30, 2016 10:03:48 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8013 java.net.BindException: Address already in use
+Nov 30, 2016 10:03:48 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8014 java.net.BindException: Address already in use
+Nov 30, 2016 10:03:48 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8015 java.net.BindException: Address already in use
+Nov 30, 2016 10:03:48 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8016 java.net.BindException: Address already in use
+Nov 30, 2016 10:03:48 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8017 java.net.BindException: Address already in use
+Nov 30, 2016 10:03:48 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8018 java.net.BindException: Address already in use
+Nov 30, 2016 10:03:48 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8019 java.net.BindException: Address already in use
+Nov 30, 2016 10:03:48 PM org.apache.jk.common.ChannelSocket init
+SEVERE: Can't find free port 8009 8019
+Nov 30, 2016 10:03:48 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/78  config=null
+Nov 30, 2016 10:03:48 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1436 ms
+Nov 30, 2016 10:19:11 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:19:12 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Nov 30, 2016 10:19:12 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:19:12 PM org.apache.jk.common.ChannelSocket destroy
+INFO: Error shutting down the channel 8009 java.lang.NullPointerException
+Nov 30, 2016 10:19:12 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Failed shutdown of Apache Portable Runtime
+Nov 30, 2016 10:23:16 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Nov 30, 2016 10:23:16 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:23:16 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 453 ms
+Nov 30, 2016 10:23:16 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Nov 30, 2016 10:23:16 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.1
+Nov 30, 2016 10:23:16 PM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Nov 30, 2016 10:23:17 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:23:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8009 java.net.BindException: Address already in use
+Nov 30, 2016 10:23:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8010 java.net.BindException: Address already in use
+Nov 30, 2016 10:23:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8011 java.net.BindException: Address already in use
+Nov 30, 2016 10:23:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8012 java.net.BindException: Address already in use
+Nov 30, 2016 10:23:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8013 java.net.BindException: Address already in use
+Nov 30, 2016 10:23:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8014 java.net.BindException: Address already in use
+Nov 30, 2016 10:23:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8015 java.net.BindException: Address already in use
+Nov 30, 2016 10:23:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8016 java.net.BindException: Address already in use
+Nov 30, 2016 10:23:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8017 java.net.BindException: Address already in use
+Nov 30, 2016 10:23:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8018 java.net.BindException: Address already in use
+Nov 30, 2016 10:23:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8019 java.net.BindException: Address already in use
+Nov 30, 2016 10:23:17 PM org.apache.jk.common.ChannelSocket init
+SEVERE: Can't find free port 8009 8019
+Nov 30, 2016 10:23:17 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/30  config=null
+Nov 30, 2016 10:23:18 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1160 ms
+Nov 30, 2016 10:29:25 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:29:26 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Nov 30, 2016 10:29:26 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:29:26 PM org.apache.jk.common.ChannelSocket destroy
+INFO: Error shutting down the channel 8009 java.lang.NullPointerException
+Nov 30, 2016 10:29:26 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Failed shutdown of Apache Portable Runtime
+Nov 30, 2016 10:34:19 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Nov 30, 2016 10:34:19 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:34:19 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 441 ms
+Nov 30, 2016 10:34:19 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Nov 30, 2016 10:34:19 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.1
+Nov 30, 2016 10:34:19 PM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Nov 30, 2016 10:34:20 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:34:20 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8009 java.net.BindException: Address already in use
+Nov 30, 2016 10:34:20 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8010 java.net.BindException: Address already in use
+Nov 30, 2016 10:34:20 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8011 java.net.BindException: Address already in use
+Nov 30, 2016 10:34:20 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8012 java.net.BindException: Address already in use
+Nov 30, 2016 10:34:20 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8013 java.net.BindException: Address already in use
+Nov 30, 2016 10:34:20 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8014 java.net.BindException: Address already in use
+Nov 30, 2016 10:34:20 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8015 java.net.BindException: Address already in use
+Nov 30, 2016 10:34:20 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8016 java.net.BindException: Address already in use
+Nov 30, 2016 10:34:20 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8017 java.net.BindException: Address already in use
+Nov 30, 2016 10:34:20 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8018 java.net.BindException: Address already in use
+Nov 30, 2016 10:34:20 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8019 java.net.BindException: Address already in use
+Nov 30, 2016 10:34:20 PM org.apache.jk.common.ChannelSocket init
+SEVERE: Can't find free port 8009 8019
+Nov 30, 2016 10:34:20 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/25  config=null
+Nov 30, 2016 10:34:20 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1120 ms
+Nov 30, 2016 10:35:14 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:35:15 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Nov 30, 2016 10:35:15 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:35:15 PM org.apache.jk.common.ChannelSocket destroy
+INFO: Error shutting down the channel 8009 java.lang.NullPointerException
+Nov 30, 2016 10:35:15 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Failed shutdown of Apache Portable Runtime
+Nov 30, 2016 10:40:31 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Nov 30, 2016 10:40:31 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:40:31 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 388 ms
+Nov 30, 2016 10:40:32 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Nov 30, 2016 10:40:32 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.1
+Nov 30, 2016 10:40:32 PM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Nov 30, 2016 10:40:33 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:40:33 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8009 java.net.BindException: Address already in use
+Nov 30, 2016 10:40:33 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8010 java.net.BindException: Address already in use
+Nov 30, 2016 10:40:33 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8011 java.net.BindException: Address already in use
+Nov 30, 2016 10:40:33 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8012 java.net.BindException: Address already in use
+Nov 30, 2016 10:40:33 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8013 java.net.BindException: Address already in use
+Nov 30, 2016 10:40:33 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8014 java.net.BindException: Address already in use
+Nov 30, 2016 10:40:33 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8015 java.net.BindException: Address already in use
+Nov 30, 2016 10:40:33 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8016 java.net.BindException: Address already in use
+Nov 30, 2016 10:40:33 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8017 java.net.BindException: Address already in use
+Nov 30, 2016 10:40:33 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8018 java.net.BindException: Address already in use
+Nov 30, 2016 10:40:33 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8019 java.net.BindException: Address already in use
+Nov 30, 2016 10:40:33 PM org.apache.jk.common.ChannelSocket init
+SEVERE: Can't find free port 8009 8019
+Nov 30, 2016 10:40:33 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/19  config=null
+Nov 30, 2016 10:40:33 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1648 ms
+Nov 30, 2016 10:40:57 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:40:58 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Nov 30, 2016 10:40:58 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:40:58 PM org.apache.jk.common.ChannelSocket destroy
+INFO: Error shutting down the channel 8009 java.lang.NullPointerException
+Nov 30, 2016 10:40:58 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Failed shutdown of Apache Portable Runtime
+Nov 30, 2016 10:41:46 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Nov 30, 2016 10:41:46 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:41:46 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 423 ms
+Nov 30, 2016 10:41:46 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Nov 30, 2016 10:41:46 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.1
+Nov 30, 2016 10:41:46 PM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Nov 30, 2016 10:41:47 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:41:47 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8009 java.net.BindException: Address already in use
+Nov 30, 2016 10:41:47 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8010 java.net.BindException: Address already in use
+Nov 30, 2016 10:41:47 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8011 java.net.BindException: Address already in use
+Nov 30, 2016 10:41:47 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8012 java.net.BindException: Address already in use
+Nov 30, 2016 10:41:47 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8013 java.net.BindException: Address already in use
+Nov 30, 2016 10:41:47 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8014 java.net.BindException: Address already in use
+Nov 30, 2016 10:41:47 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8015 java.net.BindException: Address already in use
+Nov 30, 2016 10:41:47 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8016 java.net.BindException: Address already in use
+Nov 30, 2016 10:41:47 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8017 java.net.BindException: Address already in use
+Nov 30, 2016 10:41:47 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8018 java.net.BindException: Address already in use
+Nov 30, 2016 10:41:47 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8019 java.net.BindException: Address already in use
+Nov 30, 2016 10:41:47 PM org.apache.jk.common.ChannelSocket init
+SEVERE: Can't find free port 8009 8019
+Nov 30, 2016 10:41:47 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/19  config=null
+Nov 30, 2016 10:41:47 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1039 ms
+Nov 30, 2016 10:42:07 PM org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:42:08 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Nov 30, 2016 10:42:08 PM org.apache.coyote.http11.Http11Protocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-21106
+Nov 30, 2016 10:42:08 PM org.apache.jk.common.ChannelSocket destroy
+INFO: Error shutting down the channel 8009 java.lang.NullPointerException
+Nov 30, 2016 10:42:08 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Failed shutdown of Apache Portable Runtime
