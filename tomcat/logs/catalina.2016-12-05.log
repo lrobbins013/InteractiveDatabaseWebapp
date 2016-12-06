@@ -473,3 +473,45 @@ Dec 05, 2016 6:08:19 PM org.apache.jk.server.JkMain start
 INFO: Jk running ID=0 time=0/88  config=null
 Dec 05, 2016 6:08:19 PM org.apache.catalina.startup.Catalina start
 INFO: Server startup in 873 ms
+Dec 05, 2016 10:48:16 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Dec 05, 2016 10:48:16 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-21106
+Dec 05, 2016 10:48:16 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 315 ms
+Dec 05, 2016 10:48:16 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Dec 05, 2016 10:48:16 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.1
+Dec 05, 2016 10:48:16 PM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Dec 05, 2016 10:48:17 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-21106
+Dec 05, 2016 10:48:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8009 java.net.BindException: Address already in use
+Dec 05, 2016 10:48:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8010 java.net.BindException: Address already in use
+Dec 05, 2016 10:48:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8011 java.net.BindException: Address already in use
+Dec 05, 2016 10:48:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8012 java.net.BindException: Address already in use
+Dec 05, 2016 10:48:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8013 java.net.BindException: Address already in use
+Dec 05, 2016 10:48:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8014 java.net.BindException: Address already in use
+Dec 05, 2016 10:48:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8015 java.net.BindException: Address already in use
+Dec 05, 2016 10:48:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8016 java.net.BindException: Address already in use
+Dec 05, 2016 10:48:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8017 java.net.BindException: Address already in use
+Dec 05, 2016 10:48:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8018 java.net.BindException: Address already in use
+Dec 05, 2016 10:48:17 PM org.apache.jk.common.ChannelSocket init
+INFO: Port busy 8019 java.net.BindException: Address already in use
+Dec 05, 2016 10:48:17 PM org.apache.jk.common.ChannelSocket init
+SEVERE: Can't find free port 8009 8019
+Dec 05, 2016 10:48:17 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/34  config=null
+Dec 05, 2016 10:48:17 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 987 ms

@@ -124,3 +124,7 @@ name cannot be resolved
 	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:445)
 	at java.lang.Thread.run(Thread.java:745)
 
+Dec 05, 2016 10:48:16 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+Dec 05, 2016 10:48:16 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()

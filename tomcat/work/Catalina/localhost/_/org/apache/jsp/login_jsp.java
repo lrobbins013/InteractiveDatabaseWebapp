@@ -5,7 +5,11 @@ import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.util.*;
 import java.lang.StringBuffer;
-import dbController.DatabaseController;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -65,10 +69,43 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<h4>\n");
 
 	String firstName = request.getParameter("firstName");
-	
 	String lastName = request.getParameter("lastName");
 
-	out.write("Patient: " + firstName + " " + lastName);
+	//out.write("Patient: " + firstName + " " + lastName);
+
+	//A handle to the connection to the DBMS.
+
+	Connection connection;
+
+	//A handle to the statement.
+
+	Statement statement;
+
+	String username = "lrobbins013";
+	String password = "a1106";
+	String connectString = "jdbc:oracle:thin:@aloe.cs.arizona.edu:1521:oracle";
+
+
+	Class.forName("oracle.jdbc.OracleDriver");
+	connection = DriverManager.getConnection(connectString, username, password);
+	statement = connection.createStatement();
+	ResultSet rs = statement.executeQuery("select * from levihill.Patient where  FIRSTNAME=\'" + firstName + "\'and  LASTNAME=\'" + lastName + "\'");
+
+	String qFName=null, qLName=null, qBalance=null;
+	
+	while(rs.next()) {
+		qFName = rs.getString("FIRSTNAME");
+		qLName = rs.getString("LASTNAME");
+		qBalance = rs.getString("BALANCE");
+	}
+
+	if (qFName == null) {
+		out.write("Patient \"" + firstName + " " + lastName + "\" not found.");
+	}
+	else {
+		out.write("Patient: " + qFName + " " + qLName + " <br/> Balance: " + qBalance + " <br/> ");
+	}
+
 
       out.write(" \n");
       out.write("\n");
