@@ -59,7 +59,7 @@
 		out.write("Patient \"" + firstName + " " + lastName + "\" not found.");
 	}
 	else {
-		out.write("Patient: " + qFName + " " + qLName + " <br/> Balance: " + qBalance + " <br/> ");
+		out.write("Patient: " + qFName + " " + qLName + " <br/> Balance: $" + qBalance + " <br/> ");
 	}
 
 	statement.close();
@@ -77,7 +77,12 @@
 				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
 			   	"<input type=\"submit\" value=\"Check current appointments\"/>"+
 			   "</form>");
-		out.write("<form action=\"service.html\">"+
+		out.write("<form action=\"/querypages/payment.jsp\">"+
+				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
+			   	"<input type=\"submit\" value=\"Make a payment\"/>"+
+			   "</form>");
+		out.write("<form action=\"service.jsp\">"+
+				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
 			   	"<input type=\"submit\" value=\"See information about available services\"/>"+
 			   "</form>");
 		out.write("<form action=\"index.html\">"+

@@ -44,6 +44,7 @@
 	if (qFName == null) {
 		statement.executeQuery("INSERT INTO Levihill.Patient (patID, firstName, lastName, balance) " +
                                         "VALUES ((Select MAX(patID)+1  FROM Levihill.Patient), \'" + firstName + "\', \'" + lastName + "\', 0)");
+		out.write("Patient \"" + firstName + " " + lastName + "\" successfully registered. <br> ");
 	}
 	else {
 		out.write("Patient \"" + qFName + " " + qLName + "\" already exists. <br> ");
