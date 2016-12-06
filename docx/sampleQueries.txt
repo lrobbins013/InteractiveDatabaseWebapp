@@ -1,19 +1,31 @@
-DROP TRIGGER uponServiceLog;
-DROP TRIGGER uponTransaction;
-DROP TRIGGER uponPayment;
 
 
-@sqlFiles/Account
-@sqlFiles/Appointment
-@sqlFiles/Employee
-@sqlFiles/Laboratory
-@sqlFiles/Patient
-@sqlFiles/Payment
-@sqlFiles/Procedure
-@sqlFiles/proSup
-@sqlFiles/ServiceLog
-@sqlFiles/Supplies
-@sqlFiles/Transaction
+@sqlFiles/LoadDentistDB
+
+select * from Levihill.Account;
+select * from Levihill.Appointment;
+select * from Levihill.Employee;
+select * from Levihill.Laboratory;
+select * from Levihill.Patient;
+select * from Levihill.Payment;
+select * from Levihill.Procedure;
+select * from Levihill.proSup;
+select * from Levihill.ServiceLog ORDER BY servID;
+select * from Levihill.Supplies;
+select * from Levihill.Transaction;
+
+
+Add a patient
+--------------
+
+INSERT INTO Levihill.Patient (patID, firstName, lastName, balance)
+VALUES ((Select MAX(patID)+1  FROM Levihill.Patient), 'Levi', 'Hill', 0);
+
+
+
+Trigger for ServiceLog
+-----------------------
+
 
 CREATE OR REPLACE TRIGGER uponServiceLog
 AFTER INSERT ON Levihill.ServiceLog
@@ -38,6 +50,15 @@ BEGIN
 END;	
 /
 
+
+
+show error trigger uponServiceLog;
+
+
+Trigger for Transaction
+-----------------------
+
+
 CREATE OR REPLACE TRIGGER uponTransaction
 AFTER INSERT ON Levihill.Transaction
 REFERENCING NEW AS new
@@ -53,6 +74,11 @@ BEGIN
 END;	
 /
 
+
+
+Trigger for Payment
+-----------------------
+
 CREATE OR REPLACE TRIGGER uponPayment
 AFTER INSERT ON Levihill.Payment 
 REFERENCING NEW AS new
@@ -62,3 +88,7 @@ BEGIN
 
 END;	
 /
+
+
+
+
