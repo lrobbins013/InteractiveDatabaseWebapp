@@ -7,7 +7,7 @@
 </head>
 <body>
 <div align="left">
-  <h2>Schedule an Appointment</h2> 
+  <h2>Submit a Service Event</h2> 
    
   <form action="servicelog.jsp"> 
     Procedure:
