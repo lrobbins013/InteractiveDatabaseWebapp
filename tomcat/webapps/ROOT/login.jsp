@@ -50,6 +50,9 @@
 		out.write("Patient: " + qFName + " " + qLName + " <br/> Balance: " + qBalance + " <br/> ");
 	}
 
+	statement.close();
+	connection.close();
+
 %> 
 
 </h4>

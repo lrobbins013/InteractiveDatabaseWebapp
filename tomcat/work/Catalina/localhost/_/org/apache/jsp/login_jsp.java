@@ -106,6 +106,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 		out.write("Patient: " + qFName + " " + qLName + " <br/> Balance: " + qBalance + " <br/> ");
 	}
 
+	statement.close();
+	connection.close();
+
 
       out.write(" \n");
       out.write("\n");
