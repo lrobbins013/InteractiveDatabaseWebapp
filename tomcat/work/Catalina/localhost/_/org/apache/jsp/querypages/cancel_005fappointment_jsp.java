@@ -1,4 +1,4 @@
-package org.apache.jsp;
+package org.apache.jsp.querypages;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class cancel_005fappointment_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static java.util.List _jspx_dependants;
@@ -62,19 +62,21 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("<head>\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("<title>Patient Homepage</title>\n");
+      out.write("<title>Cancellation</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("<div id=\"searchresult\">\n");
       out.write("<h4>\n");
 
-	String firstName = request.getParameter("firstName");
-	String lastName = request.getParameter("lastName");
+	/*******************************************************************************
+	 * Cancels an appointment for the patient if they are booked for that day/time *
+         *******************************************************************************/
 
-	//Parameter given if returning from appointment scheduling
+
 	String patID = request.getParameter("patID");
+	String date = request.getParameter("date");
+	String time = request.getParameter("time");
 
-	//out.write("Patient: " + firstName + " " + lastName);
 
 	//A handle to the connection to the DBMS.
 
@@ -84,38 +86,36 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 	Statement statement;
 
-	String username = "lrobbins013";
-	String password = "a1106";
+	String username = "levihill";
+	String password = "a3012";
 	String connectString = "jdbc:oracle:thin:@aloe.cs.arizona.edu:1521:oracle";
 
 
 	Class.forName("oracle.jdbc.OracleDriver");
 	connection = DriverManager.getConnection(connectString, username, password);
 	statement = connection.createStatement();
-	ResultSet rs = null;
 
-	if (firstName != null) {
-		rs = statement.executeQuery("select * from levihill.Patient where  FIRSTNAME=\'" + firstName + "\' " + 
-                                                      "and  LASTNAME=\'" + lastName + "\'");
-	}
-	else {
-		rs = statement.executeQuery("select * from levihill.Patient where  PATID=\'" + patID + "\'");
-	}
+	ResultSet rs = statement.executeQuery("select APPID from levihill.appointment where DAY=\'" + date +"\' " +
+					         "and TIME=\'" + time +"\' " +
+                                                 "and PATID=\'" + patID + "\'");
 
-	String qPatID=null, qFName=null, qLName=null, qBalance=null;
 	
-	while(rs.next()) {
-		qPatID = rs.getString("PATID");
-		qFName = rs.getString("FIRSTNAME");
-		qLName = rs.getString("LASTNAME");
-		qBalance = rs.getString("BALANCE");
-	}
-
-	if (qFName == null) {
-		out.write("Patient \"" + firstName + " " + lastName + "\" not found.");
+	if (!rs.next()) {
+		out.write("Could not find an appointment scheduled at that day and time. <br/>");
 	}
 	else {
-		out.write("Patient: " + qFName + " " + qLName + " <br/> Balance: $" + qBalance + " <br/> ");
+			//Insert new appointment
+		statement.executeQuery("delete from levihill.appointment " +
+					"where PATID=\'" + patID + "\' " +
+					  "and DAY=\'" + date + "\' " +
+					  "and TIME=\'" + time + "\' ");
+
+		out.write("Procedure successfully cancelled. <br/> " + 
+			  "<form action=\"/login.jsp\">" +
+			  "<input type=\"hidden\" name=\"patID\" value=\"" + patID +"\"/>" +
+			  "<input type=\"submit\" value=\"Return to patient home\"/>"+
+			  "</form>");
+
 	}
 
 	statement.close();
@@ -123,39 +123,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 	
 
       out.write(" \n");
-      out.write("<br>\n");
-
-	if (qFName != null) {
-		out.write("<form action=\"appointment.jsp\">"+
-				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
-			   	"<input type=\"submit\" value=\"Schedule an appointment\"/>"+
-			   "</form>");
-		out.write("<form action=\"/querypages/current_appointments.jsp\">"+
-				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
-			   	"<input type=\"submit\" value=\"Check current appointments\"/>"+
-			   "</form>");
-		out.write("<form action=\"/querypages/cancellation.jsp\">"+
-				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
-			   	"<input type=\"submit\" value=\"Cancel an appointment\"/>"+
-			   "</form>");
-		out.write("<form action=\"/querypages/payment.jsp\">"+
-				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
-			   	"<input type=\"submit\" value=\"Make a payment\"/>"+
-			   "</form>");
-		out.write("<form action=\"/querypages/transaction_history.jsp\">"+
-				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
-			   	"<input type=\"submit\" value=\"View Transaction History\"/>"+
-			   "</form>");
-		out.write("<form action=\"service.jsp\">"+
-				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
-			   	"<input type=\"submit\" value=\"Service information\"/>"+
-			   "</form>");
-		out.write("<form action=\"index.html\">"+
-			   	"<input type=\"submit\" value=\"Logout\"/>"+
-			   "</form>");
-	}
-
-      out.write("\n");
       out.write("</h4>\n");
       out.write("</div>\n");
       out.write("</body>\n");

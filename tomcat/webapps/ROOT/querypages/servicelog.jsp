@@ -43,17 +43,6 @@
 				"VALUES ((Select MAX(SERVID)+1  FROM Levihill.ServiceLog), \'" + patID + "\', " +
 					"\'" + proID + "\', \'" + empID + "\')");
 
-		//Update Patient Balance
-	rs = statement.executeQuery("select BALANCE from levihill.patient where PATID=\'" + patID +"\'");
-	rs.next();
-	int tempBalance = Integer.parseInt(rs.getString("BALANCE"));
-
-	rs = statement.executeQuery("select COST from levihill.procedure where PROID=\'" + proID +"\'");
-	rs.next();
-	tempBalance += Integer.parseInt(rs.getString("COST"));
-
-	statement.executeQuery("update patient set BALANCE = \'" + tempBalance + "\' where PATID=\'" + patID + "\'");
-
 	out.write("Service event successfully logged. <br/> " + 
 			"<form action=\"/login.jsp\">" +
 			"<input type=\"hidden\" name=\"patID\" value=\"" + patID +"\"/>" +

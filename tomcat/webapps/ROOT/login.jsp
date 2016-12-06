@@ -77,6 +77,10 @@
 				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
 			   	"<input type=\"submit\" value=\"Check current appointments\"/>"+
 			   "</form>");
+		out.write("<form action=\"/querypages/cancellation.jsp\">"+
+				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
+			   	"<input type=\"submit\" value=\"Cancel an appointment\"/>"+
+			   "</form>");
 		out.write("<form action=\"/querypages/payment.jsp\">"+
 				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
 			   	"<input type=\"submit\" value=\"Make a payment\"/>"+
