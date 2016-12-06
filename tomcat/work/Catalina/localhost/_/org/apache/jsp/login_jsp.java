@@ -71,6 +71,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 	String firstName = request.getParameter("firstName");
 	String lastName = request.getParameter("lastName");
 
+	//Parameter given if returning from appointment scheduling
+	String patID = request.getParameter("patID");
+
 	//out.write("Patient: " + firstName + " " + lastName);
 
 	//A handle to the connection to the DBMS.
@@ -89,11 +92,20 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 	Class.forName("oracle.jdbc.OracleDriver");
 	connection = DriverManager.getConnection(connectString, username, password);
 	statement = connection.createStatement();
-	ResultSet rs = statement.executeQuery("select * from levihill.Patient where  FIRSTNAME=\'" + firstName + "\'and  LASTNAME=\'" + lastName + "\'");
+	ResultSet rs = null;
 
-	String qFName=null, qLName=null, qBalance=null;
+	if (firstName != null) {
+		rs = statement.executeQuery("select * from levihill.Patient where  FIRSTNAME=\'" + firstName + "\' " + 
+                                                      "and  LASTNAME=\'" + lastName + "\'");
+	}
+	else {
+		rs = statement.executeQuery("select * from levihill.Patient where  PATID=\'" + patID + "\'");
+	}
+
+	String qPatID=null, qFName=null, qLName=null, qBalance=null;
 	
 	while(rs.next()) {
+		qPatID = rs.getString("PATID");
 		qFName = rs.getString("FIRSTNAME");
 		qLName = rs.getString("LASTNAME");
 		qBalance = rs.getString("BALANCE");
@@ -114,8 +126,19 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<br>\n");
 
 	if (qFName != null) {
+		out.write("<form action=\"appointment.jsp\">"+
+				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
+			   	"<input type=\"submit\" value=\"Schedule an appointment\"/>"+
+			   "</form>");
+		out.write("<form action=\"/querypages/current_appointments.jsp\">"+
+				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
+			   	"<input type=\"submit\" value=\"Check current appointments\"/>"+
+			   "</form>");
 		out.write("<form action=\"service.html\">"+
-			   	"<input type=\"submit\" value=\"See available services\"/>"+
+			   	"<input type=\"submit\" value=\"See information about available services\"/>"+
+			   "</form>");
+		out.write("<form action=\"index.html\">"+
+			   	"<input type=\"submit\" value=\"Logout\"/>"+
 			   "</form>");
 	}
 
