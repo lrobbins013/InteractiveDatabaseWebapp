@@ -1,2 +1,3 @@
 Payment,,
-#patID,billingInfo,#cardNum
+#patID,description,#total
+1000,Credit Card,50
