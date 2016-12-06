@@ -32,13 +32,13 @@
 	Class.forName("oracle.jdbc.OracleDriver");
 	connection = DriverManager.getConnection(connectString, username, password);
 	statement = connection.createStatement();
-	ResultSet rs = statement.executeQuery("select PRONAME, COST, SUPNAME, AMOUNT " + 
+	ResultSet rs = statement.executeQuery("select PRONAME, COST, SUPNAME, AMOUNT, QNTY " + 
 					      "from   levihill.Procedure, levihill.supplies, levihill.proSup " + 
 					      "where  procedure.proID=proSup.proID and proSup.supID=supplies.supID " + 
 					      "order by procedure.proname");
 
 	out.write("<table><tr><th>COST</th><th>Procedure</th>" +
-   		  "<th>Supplies</th><th>Amount</th></tr>");
+   		  "<th>Supplies</th><th>Amount</th><th>Supply Qnty</th></tr>");
 
 	String qFName=null, qLName=null, qBalance=null;
 	int i = 0;	
@@ -49,6 +49,7 @@
 			  "<td>" + rs.getString("PRONAME") + "</td> "+
 			  "<td>" + rs.getString("SUPNAME") + "</td> "+
 			  "<td>" + rs.getString("AMOUNT") + "</td> "+
+			  "<td>" + rs.getString("QNTY") + "</td> "+
 			  "</tr>");
 		i++;
 	}
