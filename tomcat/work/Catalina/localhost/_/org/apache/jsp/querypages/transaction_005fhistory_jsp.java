@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public final class procedure_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class transaction_005fhistory_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static java.util.List _jspx_dependants;
@@ -62,14 +62,16 @@ public final class procedure_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("<head>\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("<title>Procedure List</title>\n");
+      out.write("<title>Transaction History</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("<div id=\"searchresult\">\n");
 
-	/**************************************************************
-	 * Returns a table representation of the available procedures *
-         **************************************************************/
+	/******************************************************************
+	 * Returns a table representation of the patients payment history *
+         ******************************************************************/
+
+	String patID = request.getParameter("patID");
 
 	//A handle to the connection to the DBMS.
 
@@ -87,18 +89,17 @@ public final class procedure_jsp extends org.apache.jasper.runtime.HttpJspBase
 	Class.forName("oracle.jdbc.OracleDriver");
 	connection = DriverManager.getConnection(connectString, username, password);
 	statement = connection.createStatement();
-	ResultSet rs = statement.executeQuery("select * from levihill.Procedure");
+	ResultSet rs = statement.executeQuery("select TRANSID, DESCRIPTION, AMOUNT from levihill.transaction where PATID=\'" + patID +"\'");
 
-	out.write("<table><tr><th>Procedure Name</th>" +
-   		  "<th>COST</th></tr>");
+	out.write("<table><tr><th>Transaction ID</th><th>Description</th><th>Amount</th></tr>");
 
-	String qFName=null, qLName=null, qBalance=null;
 	int i = 0;	
 
 	while(rs.next()) {
 		out.write("<tr id=\"tablerow_" + i + "\"> "+
-			  "<td>" + rs.getString("PRONAME") + "</b></a></td> "+
-			  "<td>" + rs.getString("COST") + "</td> "+
+			  "<td>" + rs.getString("TRANSID") + "</b></a></td> "+
+			  "<td>" + rs.getString("DESCRIPTION") + "</b></a></td> "+
+			  "<td>" + rs.getString("AMOUNT") + "</td> "+
 			  "</tr>");
 		i++;
 	}

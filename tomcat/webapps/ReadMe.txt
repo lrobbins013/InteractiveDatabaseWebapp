@@ -10,7 +10,7 @@ Patient Login:
 	to log in as or to register a new patient to the database.
 
 	After logging in, the user is shown the patient they are logged in as and their
-	current account balance. They are given 5 options to choose from:
+	current account balance. They are given 6 options to choose from:
 
 	
 	1. Schedule an Appoinment
@@ -26,11 +26,14 @@ Patient Login:
 		Allows a patient to submit a payment to the database to change their
 		current account balance.
 
-	4. Service information
+	4. View Transaction History
+		Allows a patient to view every payment they have made.
+
+	5. Service information
 		Navigates to a page that allows the user to check the current supply list,
 		see the available procedures and their costs, or submit a service event.
 		Service events are when a patient shows up for their appointment which
 		they are charged for.
 
-	5. Logout
+	6. Logout
 		Returns the user to index.html

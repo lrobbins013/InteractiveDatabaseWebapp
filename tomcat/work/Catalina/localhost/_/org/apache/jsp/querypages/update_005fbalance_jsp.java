@@ -98,6 +98,10 @@ public final class update_005fbalance_jsp extends org.apache.jasper.runtime.Http
 
 	statement.executeQuery("update patient set BALANCE = \'" + tempBalance + "\' where PATID=\'" + patID + "\'");
 
+	statement.executeQuery("INSERT INTO levihill.transaction (TRANSID, PATID, DESCRIPTION, AMOUNT) " +
+					"VALUES ((Select MAX(TRANSID)+1  FROM Levihill.transaction), \'" + patID + "\', " +
+							"\'Online payment\', \'" + amount + "\')");
+
 	out.write("Payment successful. <br/>");
 	out.write("<form action=\"/login.jsp\">" +
 		  "<input type=\"hidden\" name=\"patID\" value=\"" + patID +"\"/>" +

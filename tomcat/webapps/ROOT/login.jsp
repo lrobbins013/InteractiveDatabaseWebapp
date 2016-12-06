@@ -81,6 +81,10 @@
 				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
 			   	"<input type=\"submit\" value=\"Make a payment\"/>"+
 			   "</form>");
+		out.write("<form action=\"/querypages/transaction_history.jsp\">"+
+				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
+			   	"<input type=\"submit\" value=\"View Transaction History\"/>"+
+			   "</form>");
 		out.write("<form action=\"service.jsp\">"+
 				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
 			   	"<input type=\"submit\" value=\"Service information\"/>"+
