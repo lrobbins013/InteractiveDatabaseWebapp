@@ -68,6 +68,10 @@ public final class servicelog_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<div id=\"searchresult\">\n");
       out.write("<h4>\n");
 
+	/*********************************************************************
+	 * Submits a service event (a patient came in for their appointment) *
+         *********************************************************************/
+
 	String patID = request.getParameter("patID");
 	String empID = request.getParameter("empID");
 	String proID = request.getParameter("proID");
@@ -94,17 +98,6 @@ public final class servicelog_jsp extends org.apache.jasper.runtime.HttpJspBase
 	statement.executeQuery("INSERT INTO levihill.ServiceLog (SERVID, PATID, PROID, EMPID) " +
 				"VALUES ((Select MAX(SERVID)+1  FROM Levihill.ServiceLog), \'" + patID + "\', " +
 					"\'" + proID + "\', \'" + empID + "\')");
-
-		//Update Patient Balance
-	rs = statement.executeQuery("select BALANCE from levihill.patient where PATID=\'" + patID +"\'");
-	rs.next();
-	int tempBalance = Integer.parseInt(rs.getString("BALANCE"));
-
-	rs = statement.executeQuery("select COST from levihill.procedure where PROID=\'" + proID +"\'");
-	rs.next();
-	tempBalance += Integer.parseInt(rs.getString("COST"));
-
-	statement.executeQuery("update patient set BALANCE = \'" + tempBalance + "\' where PATID=\'" + patID + "\'");
 
 	out.write("Service event successfully logged. <br/> " + 
 			"<form action=\"/login.jsp\">" +

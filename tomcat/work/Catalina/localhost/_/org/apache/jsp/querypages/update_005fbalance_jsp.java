@@ -91,12 +91,9 @@ public final class update_005fbalance_jsp extends org.apache.jasper.runtime.Http
 	connection = DriverManager.getConnection(connectString, username, password);
 	statement = connection.createStatement();
 
-	ResultSet rs = statement.executeQuery("select BALANCE from levihill.patient where PATID=\'" + patID +"\'");
-	rs.next();
-	int tempBalance = Integer.parseInt(rs.getString("BALANCE"));
-	tempBalance -= Integer.parseInt(amount);
-
-	statement.executeQuery("update patient set BALANCE = \'" + tempBalance + "\' where PATID=\'" + patID + "\'");
+	statement.executeQuery("INSERT INTO levihill.payment (PATID, DESCRIPTION, TOTAL) " +
+					"VALUES (\'" + patID + "\', \'" + request.getParameter("description") + 
+					"\', \'" + amount + "\')");
 
 	statement.executeQuery("INSERT INTO levihill.transaction (TRANSID, PATID, DESCRIPTION, AMOUNT) " +
 					"VALUES ((Select MAX(TRANSID)+1  FROM Levihill.transaction), \'" + patID + "\', " +

@@ -81,13 +81,35 @@ public final class service_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("  </form>\n");
       out.write("  <br/>\n");
       out.write("\n");
-      out.write("  <form action=\"querypages/service_event.jsp\">\n");
-      out.write("    <input type=\"submit\" value=\"Submit Service Event\">\n");
+      out.write("  <form action=\"querypages/servicelog.jsp\">\n");
+      out.write("    Procedure:\n");
+      out.write("    <select name=\"proID\">\n");
+      out.write("      <option value=\"2000\">Cleaning</option>\n");
+      out.write("      <option value=\"2001\">Floride Treatment</option>\n");
+      out.write("      <option value=\"2002\">Filling</option>\n");
+      out.write("      <option value=\"2003\">Root Canal</option>\n");
+      out.write("      <option value=\"2004\">Dental Crown</option>\n");
+      out.write("      <option value=\"2005\">Tooth Implant</option>\n");
+      out.write("      <option value=\"2006\">Tooth Removal</option>\n");
+      out.write("      <option value=\"2007\">Teeth Whitening</option>\n");
+      out.write("      <option value=\"2008\">Xray</option>\n");
+      out.write("      <option value=\"2009\">Retainer</option>\n");
+      out.write("    </select>\n");
+      out.write("    <br/>\n");
+      out.write("\n");
+      out.write("    Employee:\n");
+      out.write("    <select name=\"empID\">\n");
+      out.write("      <option value=\"7000\">David Wallis</option>\n");
+      out.write("      <option value=\"7001\">Jan Levinson</option>\n");
+      out.write("      <option value=\"7002\">Robert California</option>\n");
+      out.write("    </select> \n");
+      out.write("    <br/>\n");
       out.write("    ");
 
       out.write("<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/>");
     
       out.write("\n");
+      out.write("    <input type=\"submit\" value=\"Submit Service Event\">\n");
       out.write("  </form>\n");
       out.write("</div>\n");
       out.write("</body>\n");

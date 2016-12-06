@@ -59,7 +59,7 @@ public final class service_005fevent_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("<div align=\"left\">\n");
-      out.write("  <h2>Schedule an Appointment</h2> \n");
+      out.write("  <h2>Submit a Service Event</h2> \n");
       out.write("   \n");
       out.write("  <form action=\"servicelog.jsp\"> \n");
       out.write("    Procedure:\n");

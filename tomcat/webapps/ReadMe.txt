@@ -22,21 +22,22 @@ Patient Login:
 	2. Check current appointments
 		Queries the database for all of the appointments that a patient has booked.
 
-	3. Make a payment
+	3. Cancel an appointment
+		Works similarly to the appointment scheduling but deletes a scheduled appointment
+		rather than adding one.
+
+	4. Make a payment
 		Allows a patient to submit a payment to the database to change their
 		current account balance.
 
-	4. View Transaction History
+	5. View Transaction History
 		Allows a patient to view every payment they have made.
 
-	5. Service information
+	6. Service information
 		Navigates to a page that allows the user to check the current supply list,
 		see the available procedures and their costs, or submit a service event.
 		Service events are when a patient shows up for their appointment which
 		they are charged for.
-
-	6. Logout
-		Returns the user to index.html
 
 
 Workload:
