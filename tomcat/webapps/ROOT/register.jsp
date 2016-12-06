@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Patient Homepage</title>
+<title>Patient Registration</title>
 </head>
 <body>
 <div id="searchresult">
@@ -14,8 +14,6 @@
 <%
 	String firstName = request.getParameter("firstName");
 	String lastName = request.getParameter("lastName");
-
-	//out.write("Patient: " + firstName + " " + lastName);
 
 	//A handle to the connection to the DBMS.
 
@@ -25,8 +23,8 @@
 
 	Statement statement;
 
-	String username = "lrobbins013";
-	String password = "a1106";
+	String username = "levihill";
+	String password = "a3012";
 	String connectString = "jdbc:oracle:thin:@aloe.cs.arizona.edu:1521:oracle";
 
 
@@ -44,24 +42,23 @@
 	}
 
 	if (qFName == null) {
-		out.write("Patient \"" + firstName + " " + lastName + "\" not found.");
+		statement.executeQuery("INSERT INTO Levihill.Patient (patID, firstName, lastName, balance) " +
+                                        "VALUES ((Select MAX(patID)+1  FROM Levihill.Patient), \'" + firstName + "\', \'" + lastName + "\', 0)");
 	}
 	else {
-		out.write("Patient: " + qFName + " " + qLName + " <br/> Balance: " + qBalance + " <br/> ");
+		out.write("Patient \"" + qFName + " " + qLName + "\" already exists. <br> ");
 	}
 
 	statement.close();
 	connection.close();
-	
+
 %> 
+
 <br>
-<%
-	if (qFName != null) {
-		out.write("<form action=\"service.html\">"+
-			   	"<input type=\"submit\" value=\"See information about available services\"/>"+
-			   "</form>");
-	}
-%>
+  <form action="login.html">
+    <input type="submit" value="Return to login"/>
+  </form>
+
 </h4>
 </div>
 </body>

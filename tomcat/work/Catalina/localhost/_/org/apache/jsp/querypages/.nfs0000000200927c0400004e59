@@ -93,8 +93,8 @@ public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 	while(rs.next()) {
 		out.write("<tr id=\"tablerow_" + i + "\"> "+
-			  "<td>" + rs.getString("SUPID") + "</b></a></td> "+
-			  "<td>" + rs.getString("LABID") + "</b></a></td> "+
+			  "<td class=\"postlist\">< a href=\"javascript:void(0)\"\"> <b>" + rs.getString("SUPID") + "</b></a></td> "+
+			  "<td><a href=\"javascript:void(0)\" > <b>" + rs.getString("LABID") + "</b></a></td> "+
 			  "<td>" + rs.getString("SUPNAME") + "</td> "+
 			  "<td>" + rs.getString("QNTY") + "</td> "+
 			  "</tr>");

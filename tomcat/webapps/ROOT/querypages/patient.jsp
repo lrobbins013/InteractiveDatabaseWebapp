@@ -6,17 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Patient Homepage</title>
+<title>Patient List</title>
 </head>
 <body>
 <div id="searchresult">
-<h4>
 <%
-	String firstName = request.getParameter("firstName");
-	String lastName = request.getParameter("lastName");
-
-	//out.write("Patient: " + firstName + " " + lastName);
-
 	//A handle to the connection to the DBMS.
 
 	Connection connection;
@@ -33,36 +27,27 @@
 	Class.forName("oracle.jdbc.OracleDriver");
 	connection = DriverManager.getConnection(connectString, username, password);
 	statement = connection.createStatement();
-	ResultSet rs = statement.executeQuery("select * from levihill.Patient where  FIRSTNAME=\'" + firstName + "\'and  LASTNAME=\'" + lastName + "\'");
+	ResultSet rs = statement.executeQuery("select * from levihill.Patient");
+
+	out.write("<table><tr><th>PATID</th><th>FirstName</th><th>LastName</th>" +
+   		  "<th>Balance</th></tr>");
 
 	String qFName=null, qLName=null, qBalance=null;
-	
-	while(rs.next()) {
-		qFName = rs.getString("FIRSTNAME");
-		qLName = rs.getString("LASTNAME");
-		qBalance = rs.getString("BALANCE");
-	}
+	int i = 0;	
 
-	if (qFName == null) {
-		out.write("Patient \"" + firstName + " " + lastName + "\" not found.");
-	}
-	else {
-		out.write("Patient: " + qFName + " " + qLName + " <br/> Balance: " + qBalance + " <br/> ");
+	while(rs.next()) {
+		out.write("<tr id=\"tablerow_" + i + "\"> "+
+			  "<td>" + rs.getString("PATID") + "</b></a></td> "+
+			  "<td>" + rs.getString("FIRSTNAME") + "</b></a></td> "+
+			  "<td>" + rs.getString("LASTNAME") + "</td> "+
+			  "<td>" + rs.getString("BALANCE") + "</td> "+
+			  "</tr>");
+		i++;
 	}
 
 	statement.close();
 	connection.close();
-	
-%> 
-<br>
-<%
-	if (qFName != null) {
-		out.write("<form action=\"service.html\">"+
-			   	"<input type=\"submit\" value=\"See information about available services\"/>"+
-			   "</form>");
-	}
 %>
-</h4>
 </div>
 </body>
 </html>

@@ -1,6 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <%@page import="java.util.*,java.lang.StringBuffer,
-    dbController.DatabaseController" %>
+    java.sql.Connection,java.sql.DriverManager, 
+    java.sql.SQLException,java.sql.Statement,
+    java.sql.ResultSet"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,54 +11,42 @@
 <body>
 <div id="searchresult">
 <%
-  request.setCharacterEncoding("utf-8");
-  response.setContentType("text/html;charset=utf-8");
+	//A handle to the connection to the DBMS.
 
-  DatabaseController dbcontroller = new DatabaseController();
-  // connect to backend database server via the databasecontroller, which
-  // is a wrapper class providing necessary methods for this particular
-  // application
-  dbcontroller.Open();
+	Connection connection;
 
-  // writing the content on output/response page
-  out.write("<h2>All Employees</h2>");
+	//A handle to the statement.
 
-  // stringbuffer to hold final content
-  StringBuffer content = new StringBuffer();;
-  content.append("<br/><table>");
+	Statement statement;
 
-  // asking dbcontroller to list the employee table
-  Vector<String> vecResult = dbcontroller.FindAllEmployees();
-   if (vecResult == null) {
-     content.append("Query result is null!");
-   }
-   content.append("<tr><th>EMPNO</th><th>EMPNAME</th><th>EMPSALARY</th>" +
-   "<th>DEPARTMENT</th><th>BOSSNO</th></tr>");
-  if (vecResult != null && vecResult.size() > 0) {
-    for (int i = 0; i < vecResult.size(); i++) {
-      String row = vecResult.get(i);
-      String[] detail = row.split("##");
-      if (detail.length != 5) {
-        //break;
-      }
-      content.append(
-          "<tr id=\"tablerow_" + i + "\">");
-      content.append(
-          "<td class=\"postlist\"><a href=\"javascript:void(0)\" " +
-          "\"><b>" + detail[0] + "</b></a></td>");
-      content.append(
-          "<td><a href=\"javascript:void(0)\" >" +
-          "<b>" + detail[1] + "</b></a></td>");
-      content.append("<td>" + detail[2] + "</td>" +
-                     "<td>" + detail[3] + "</td>" +
-                     "<td>" + detail[4] + "</td>");
-      content.append("</tr>");
-    }
-  }
-  out.write(content.toString());
+	String username = "lrobbins013";
+	String password = "a1106";
+	String connectString = "jdbc:oracle:thin:@aloe.cs.arizona.edu:1521:oracle";
 
-  // close the dbcontroller and relase all resources occupied by it.
-  dbcontroller.Close();
+
+	Class.forName("oracle.jdbc.OracleDriver");
+	connection = DriverManager.getConnection(connectString, username, password);
+	statement = connection.createStatement();
+	ResultSet rs = statement.executeQuery("select * from levihill.Supplies");
+
+	out.write("<table><tr><th>SUPID</th><th>LABID</th><th>SUPNAME</th>" +
+   		  "<th>QNTY</th></tr>");
+
+	String qFName=null, qLName=null, qBalance=null;
+	int i = 0;	
+
+	while(rs.next()) {
+		out.write("<tr id=\"tablerow_" + i + "\"> "+
+			  "<td>" + rs.getString("SUPID") + "</b></a></td> "+
+			  "<td>" + rs.getString("LABID") + "</b></a></td> "+
+			  "<td>" + rs.getString("SUPNAME") + "</td> "+
+			  "<td>" + rs.getString("QNTY") + "</td> "+
+			  "</tr>");
+		i++;
+	}
+
+	statement.close();
+	connection.close();
 %>
 </div>
 </body>

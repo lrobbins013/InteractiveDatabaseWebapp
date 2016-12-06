@@ -108,9 +108,17 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 	statement.close();
 	connection.close();
-
+	
 
       out.write(" \n");
+      out.write("<br>\n");
+
+	if (qFName != null) {
+		out.write("<form action=\"service.html\">"+
+			   	"<input type=\"submit\" value=\"See available services\"/>"+
+			   "</form>");
+	}
+
       out.write("\n");
       out.write("</h4>\n");
       out.write("</div>\n");

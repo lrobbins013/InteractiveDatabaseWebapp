@@ -5,11 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.util.*;
 import java.lang.StringBuffer;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import dbController.DatabaseController;
 
 public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -93,11 +89,11 @@ public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 	while(rs.next()) {
 		out.write("<tr id=\"tablerow_" + i + "\"> "+
-			  "<td>" + rs.getString("SUPID") + "</b></a></td> "+
-			  "<td>" + rs.getString("LABID") + "</b></a></td> "+
+			  "<td class=\"postlist\">< a href=\"javascript:void(0)\"\"> <b>" + rs.getString("SUPID") + "</b></a></td> "+
+			  "<td><a href=\"javascript:void(0)\" > <b>" + rs.getString("LABID") + "</b></a></td> "+
 			  "<td>" + rs.getString("SUPNAME") + "</td> "+
 			  "<td>" + rs.getString("QNTY") + "</td> "+
-			  "</tr>");
+			  "</tr>"
 		i++;
 	}
 
