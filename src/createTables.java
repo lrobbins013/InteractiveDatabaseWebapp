@@ -26,7 +26,7 @@ public class createTables {
 	private static void writeSqlFile(){
 		// All cvs files for Dentist schema 
 		String[] fileNames = {"csvFiles/Account.csv", "csvFiles/Appointment.csv", "csvFiles/Employee.csv", "csvFiles/Laboratory.csv", "csvFiles/Patient.csv",
-								"csvFiles/Payment.csv", "csvFiles/Procedure.csv", "csvFiles/proSup.csv", "csvFiles/ServiceLog.csv", "csvFiles/Supplies.csv"};
+								"csvFiles/Payment.csv", "csvFiles/Procedure.csv", "csvFiles/proSup.csv", "csvFiles/ServiceLog.csv", "csvFiles/Supplies.csv", "csvFiles/Transaction.csv"};
 		PrintWriter sqlFile;
 		Scanner input = null;
 		
