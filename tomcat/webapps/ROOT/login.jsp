@@ -83,7 +83,7 @@
 			   "</form>");
 		out.write("<form action=\"service.jsp\">"+
 				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
-			   	"<input type=\"submit\" value=\"See information about available services\"/>"+
+			   	"<input type=\"submit\" value=\"Service information\"/>"+
 			   "</form>");
 		out.write("<form action=\"index.html\">"+
 			   	"<input type=\"submit\" value=\"Logout\"/>"+

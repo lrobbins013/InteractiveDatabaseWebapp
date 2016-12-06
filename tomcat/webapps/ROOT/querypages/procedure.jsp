@@ -11,6 +11,10 @@
 <body>
 <div id="searchresult">
 <%
+	/**************************************************************
+	 * Returns a table representation of the available procedures *
+         **************************************************************/
+
 	//A handle to the connection to the DBMS.
 
 	Connection connection;

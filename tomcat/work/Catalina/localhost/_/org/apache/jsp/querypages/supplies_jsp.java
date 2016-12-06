@@ -67,6 +67,10 @@ public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<body>\n");
       out.write("<div id=\"searchresult\">\n");
 
+	/***********************************************************
+	 * Returns a table representation of the supplies relation *
+         ***********************************************************/
+
 	//A handle to the connection to the DBMS.
 
 	Connection connection;
