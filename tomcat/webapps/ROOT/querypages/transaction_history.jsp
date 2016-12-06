@@ -48,6 +48,11 @@
 		i++;
 	}
 
+	out.write("</table><form action=\"/login.jsp\">" +
+		     "<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/> " +
+		     "<input type=\"submit\" value=\"Return\"/> " + 
+		     "</form>");
+
 	statement.close();
 	connection.close();
 %>

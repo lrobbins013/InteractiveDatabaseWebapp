@@ -104,6 +104,11 @@ public final class transaction_005fhistory_jsp extends org.apache.jasper.runtime
 		i++;
 	}
 
+	out.write("</table><form action=\"/login.jsp\">" +
+		     "<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/> " +
+		     "<input type=\"submit\" value=\"Return\"/> " + 
+		     "</form>");
+
 	statement.close();
 	connection.close();
 
