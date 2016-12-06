@@ -25,8 +25,8 @@ public class createTables {
 	 */
 	private static void writeSqlFile(){
 		// All cvs files for Dentist schema 
-		String[] fileNames = {"Account.csv", "Appointment.csv", "Employee.csv", "Laboratory.csv", "Patient.csv",
-								"Payment.csv", "Procedure.csv", "proSup.csv", "ServiceLog.csv", "Supplies.csv"};
+		String[] fileNames = {"csvFiles/Account.csv", "csvFiles/Appointment.csv", "csvFiles/Employee.csv", "csvFiles/Laboratory.csv", "csvFiles/Patient.csv",
+								"csvFiles/Payment.csv", "csvFiles/Procedure.csv", "csvFiles/proSup.csv", "csvFiles/ServiceLog.csv", "csvFiles/Supplies.csv"};
 		PrintWriter sqlFile;
 		Scanner input = null;
 		
@@ -43,7 +43,7 @@ public class createTables {
 				//get Table name
 				String tableName = fieldsNames[0];
 				
-				sqlFile = new PrintWriter((tableName +".sql"), "UTF-8");
+				sqlFile = new PrintWriter("sqlFiles/" + (tableName +".sql"), "UTF-8");
 				
 				
 				line = input.nextLine();
