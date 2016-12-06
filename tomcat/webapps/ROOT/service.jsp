@@ -11,11 +11,17 @@
 
   <form action="querypages/supplies.jsp">
     <input type="submit" value="Supplies list">
+    <%
+      out.write("<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/>");
+    %>
   </form>
   <br>
 
   <form action="querypages/procedure.jsp">
     <input type="submit" value="Available Procedures">
+    <%
+      out.write("<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/>");
+    %>
   </form>
   <br/>
 

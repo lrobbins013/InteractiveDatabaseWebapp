@@ -49,6 +49,11 @@
 
 	statement.close();
 	connection.close();
+
+	out.write("</table><form action=\"/service.jsp\">" +
+		     "<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/> " +
+		     "<input type=\"submit\" value=\"Return to service info\"/> " + 
+		     "</form>");
 %>
 </div>
 </body>

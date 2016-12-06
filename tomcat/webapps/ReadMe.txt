@@ -37,3 +37,9 @@ Patient Login:
 
 	6. Logout
 		Returns the user to index.html
+
+
+Workload:
+
+	Lucas Robbins was in charge of the web client. This included the creation of the html and jsp files for the website
+	and communicating between the web application layer and the database layer.

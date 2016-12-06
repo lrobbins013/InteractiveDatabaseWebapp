@@ -106,6 +106,11 @@ public final class procedure_jsp extends org.apache.jasper.runtime.HttpJspBase
 	statement.close();
 	connection.close();
 
+	out.write("</table><form action=\"/service.jsp\">" +
+		     "<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/> " +
+		     "<input type=\"submit\" value=\"Return to service info\"/> " + 
+		     "</form>");
+
       out.write("\n");
       out.write("</div>\n");
       out.write("</body>\n");
