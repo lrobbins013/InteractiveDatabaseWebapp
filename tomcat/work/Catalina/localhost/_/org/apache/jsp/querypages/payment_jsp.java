@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class payment_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static java.util.List _jspx_dependants;
@@ -62,52 +62,24 @@ public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("<head>\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("<title>Supplies List</title>\n");
+      out.write("<title>Payment</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
+      out.write("<h2>Make a payment<h2/>\n");
+      out.write("<h4>\n");
       out.write("<div id=\"searchresult\">\n");
+      out.write("  <form action=\"update_balance.jsp\">\n");
+      out.write("    Payment amount ($): \n");
+      out.write("    <input type=\"text\" name=\"amount\"/> <br/>\n");
+      out.write("    ");
 
-	/***********************************************************
-	 * Returns a table representation of the supplies relation *
-         ***********************************************************/
-
-	//A handle to the connection to the DBMS.
-
-	Connection connection;
-
-	//A handle to the statement.
-
-	Statement statement;
-
-	String username = "lrobbins013";
-	String password = "a1106";
-	String connectString = "jdbc:oracle:thin:@aloe.cs.arizona.edu:1521:oracle";
-
-
-	Class.forName("oracle.jdbc.OracleDriver");
-	connection = DriverManager.getConnection(connectString, username, password);
-	statement = connection.createStatement();
-	ResultSet rs = statement.executeQuery("select * from levihill.Supplies");
-
-	out.write("<table><tr><th>SUPNAME</th>" +
-   		  "<th>QNTY</th></tr>");
-
-	String qFName=null, qLName=null, qBalance=null;
-	int i = 0;	
-
-	while(rs.next()) {
-		out.write("<tr id=\"tablerow_" + i + "\"> "+
-			  "<td>" + rs.getString("SUPNAME") + "</td> "+
-			  "<td>" + rs.getString("QNTY") + "</td> "+
-			  "</tr>");
-		i++;
-	}
-
-	statement.close();
-	connection.close();
-
+      out.write("<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/>");
+    
       out.write("\n");
+      out.write("    <input type=\"submit\" value=\"Submit\"/>\n");
+      out.write("  </form>\n");
       out.write("</div>\n");
+      out.write("<h4/>\n");
       out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {

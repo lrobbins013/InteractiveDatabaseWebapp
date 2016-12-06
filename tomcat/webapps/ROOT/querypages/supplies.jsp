@@ -33,7 +33,7 @@
 	statement = connection.createStatement();
 	ResultSet rs = statement.executeQuery("select * from levihill.Supplies");
 
-	out.write("<table><tr><th>SUPID</th><th>LABID</th><th>SUPNAME</th>" +
+	out.write("<table><tr><th>SUPNAME</th>" +
    		  "<th>QNTY</th></tr>");
 
 	String qFName=null, qLName=null, qBalance=null;
@@ -41,8 +41,6 @@
 
 	while(rs.next()) {
 		out.write("<tr id=\"tablerow_" + i + "\"> "+
-			  "<td>" + rs.getString("SUPID") + "</b></a></td> "+
-			  "<td>" + rs.getString("LABID") + "</b></a></td> "+
 			  "<td>" + rs.getString("SUPNAME") + "</td> "+
 			  "<td>" + rs.getString("QNTY") + "</td> "+
 			  "</tr>");

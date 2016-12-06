@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class appointment_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static java.util.List _jspx_dependants;
@@ -62,14 +62,16 @@ public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("<head>\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("<title>Supplies List</title>\n");
+      out.write("<title>Patient Homepage</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("<div id=\"searchresult\">\n");
+      out.write("<h4>\n");
 
-	/***********************************************************
-	 * Returns a table representation of the supplies relation *
-         ***********************************************************/
+	String firstName = request.getParameter("firstName");
+	String lastName = request.getParameter("lastName");
+
+	//out.write("Patient: " + firstName + " " + lastName);
 
 	//A handle to the connection to the DBMS.
 
@@ -87,26 +89,47 @@ public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
 	Class.forName("oracle.jdbc.OracleDriver");
 	connection = DriverManager.getConnection(connectString, username, password);
 	statement = connection.createStatement();
-	ResultSet rs = statement.executeQuery("select * from levihill.Supplies");
+	ResultSet rs = statement.executeQuery("select * from levihill.Patient where  FIRSTNAME=\'" + firstName + "\'and  LASTNAME=\'" + lastName + "\'");
 
-	out.write("<table><tr><th>SUPNAME</th>" +
-   		  "<th>QNTY</th></tr>");
-
-	String qFName=null, qLName=null, qBalance=null;
-	int i = 0;	
-
+	String qPatID=null, qFName=null, qLName=null, qBalance=null;
+	
 	while(rs.next()) {
-		out.write("<tr id=\"tablerow_" + i + "\"> "+
-			  "<td>" + rs.getString("SUPNAME") + "</td> "+
-			  "<td>" + rs.getString("QNTY") + "</td> "+
-			  "</tr>");
-		i++;
+		qPatID = rs.getString("PATID");
+		qFName = rs.getString("FIRSTNAME");
+		qLName = rs.getString("LASTNAME");
+		qBalance = rs.getString("BALANCE");
+	}
+
+	if (qFName == null) {
+		out.write("Patient \"" + firstName + " " + lastName + "\" not found.");
+	}
+	else {
+		out.write("Patient: " + qFName + " " + qLName + " <br/> Balance: " + qBalance + " <br/> ");
+		out.write("ID: " + qPatID + " <br/>");
 	}
 
 	statement.close();
 	connection.close();
+	
+
+      out.write(" \n");
+      out.write("<br>\n");
+
+	if (qFName != null) {
+		out.write("<form action=\"appointment.html\">"+
+				"<input type=\"hidden\" name=\"patID\" value=\"" + qPatID + "\"/>" +
+			   	"<input type=\"submit\" value=\"Schedule an appointment\"/>"+
+			   "</form>");
+		out.write("<br/><form action=\"service.html\">"+
+			   	"<input type=\"submit\" value=\"See information about available services\"/>"+
+			   "</form>");
+		out.write("<br/><form action=\"index.html\">"+
+			   	"<input type=\"submit\" value=\"Logout\"/>"+
+			   "</form>");
+	}
 
       out.write("\n");
+      out.write("</h4>\n");
       out.write("</div>\n");
       out.write("</body>\n");
       out.write("</html>");

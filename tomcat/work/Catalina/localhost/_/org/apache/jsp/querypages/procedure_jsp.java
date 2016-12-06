@@ -67,6 +67,10 @@ public final class procedure_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<body>\n");
       out.write("<div id=\"searchresult\">\n");
 
+	/**************************************************************
+	 * Returns a table representation of the available procedures *
+         **************************************************************/
+
 	//A handle to the connection to the DBMS.
 
 	Connection connection;
@@ -85,7 +89,7 @@ public final class procedure_jsp extends org.apache.jasper.runtime.HttpJspBase
 	statement = connection.createStatement();
 	ResultSet rs = statement.executeQuery("select * from levihill.Procedure");
 
-	out.write("<table><tr><th>Proc. ID</th><th>Procedure Name</th><th>Lab ID</th>" +
+	out.write("<table><tr><th>Procedure Name</th>" +
    		  "<th>COST</th></tr>");
 
 	String qFName=null, qLName=null, qBalance=null;
@@ -93,10 +97,8 @@ public final class procedure_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 	while(rs.next()) {
 		out.write("<tr id=\"tablerow_" + i + "\"> "+
-			  "<td>" + rs.getString("PROID") + "</b></a></td> "+
 			  "<td>" + rs.getString("PRONAME") + "</b></a></td> "+
-			  "<td>" + rs.getString("LABID") + "</td> "+
-			  "<td>" + rs.getString("COST") + "</td> "+
+			  "<td>$" + rs.getString("COST") + "</td> "+
 			  "</tr>");
 		i++;
 	}

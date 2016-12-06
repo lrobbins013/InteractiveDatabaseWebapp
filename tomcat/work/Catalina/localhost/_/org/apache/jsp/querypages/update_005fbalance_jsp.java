@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class update_005fbalance_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static java.util.List _jspx_dependants;
@@ -62,14 +62,17 @@ public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("<head>\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("<title>Supplies List</title>\n");
+      out.write("<title>Payment</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("<div id=\"searchresult\">\n");
 
-	/***********************************************************
-	 * Returns a table representation of the supplies relation *
-         ***********************************************************/
+	/*****************************************************************
+	 * Updates a patient's balance when a payment is being processed *
+         *****************************************************************/
+
+	String patID = request.getParameter("patID");
+	String amount = request.getParameter("amount");
 
 	//A handle to the connection to the DBMS.
 
@@ -79,29 +82,27 @@ public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 	Statement statement;
 
-	String username = "lrobbins013";
-	String password = "a1106";
+	String username = "levihill";
+	String password = "a3012";
 	String connectString = "jdbc:oracle:thin:@aloe.cs.arizona.edu:1521:oracle";
 
 
 	Class.forName("oracle.jdbc.OracleDriver");
 	connection = DriverManager.getConnection(connectString, username, password);
 	statement = connection.createStatement();
-	ResultSet rs = statement.executeQuery("select * from levihill.Supplies");
 
-	out.write("<table><tr><th>SUPNAME</th>" +
-   		  "<th>QNTY</th></tr>");
+	ResultSet rs = statement.executeQuery("select BALANCE from levihill.patient where PATID=\'" + patID +"\'");
+	rs.next();
+	int tempBalance = Integer.parseInt(rs.getString("BALANCE"));
+	tempBalance -= Integer.parseInt(amount);
 
-	String qFName=null, qLName=null, qBalance=null;
-	int i = 0;	
+	statement.executeQuery("update patient set BALANCE = \'" + tempBalance + "\' where PATID=\'" + patID + "\'");
 
-	while(rs.next()) {
-		out.write("<tr id=\"tablerow_" + i + "\"> "+
-			  "<td>" + rs.getString("SUPNAME") + "</td> "+
-			  "<td>" + rs.getString("QNTY") + "</td> "+
-			  "</tr>");
-		i++;
-	}
+	out.write("Payment successful. <br/>");
+	out.write("<form action=\"/login.jsp\">" +
+		  "<input type=\"hidden\" name=\"patID\" value=\"" + patID +"\"/>" +
+	          "<input type=\"submit\" value=\"Return to patient home\"/>"+
+		  "</form>");
 
 	statement.close();
 	connection.close();

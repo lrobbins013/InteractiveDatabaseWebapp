@@ -6,14 +6,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Procedure List</title>
+<title>Current Appointments</title>
 </head>
 <body>
 <div id="searchresult">
 <%
-	/**************************************************************
-	 * Returns a table representation of the available procedures *
-         **************************************************************/
+	/**********************************************************************
+	 * Returns a table representation of the patients booked appointments.*
+         **********************************************************************/
+
+	String patID = request.getParameter("patID");
 
 	//A handle to the connection to the DBMS.
 
@@ -31,18 +33,17 @@
 	Class.forName("oracle.jdbc.OracleDriver");
 	connection = DriverManager.getConnection(connectString, username, password);
 	statement = connection.createStatement();
-	ResultSet rs = statement.executeQuery("select * from levihill.Procedure");
+	ResultSet rs = statement.executeQuery("select APPID, DAY, TIME from levihill.appointment where PATID=\'" + patID +"\'");
 
-	out.write("<table><tr><th>Procedure Name</th>" +
-   		  "<th>COST</th></tr>");
+	out.write("<table><tr><th>Appointment ID</th><th>Day</th><th>Time</th></tr>");
 
-	String qFName=null, qLName=null, qBalance=null;
 	int i = 0;	
 
 	while(rs.next()) {
 		out.write("<tr id=\"tablerow_" + i + "\"> "+
-			  "<td>" + rs.getString("PRONAME") + "</b></a></td> "+
-			  "<td>$" + rs.getString("COST") + "</td> "+
+			  "<td>" + rs.getString("APPID") + "</b></a></td> "+
+			  "<td>" + rs.getString("DAY") + "</b></a></td> "+
+			  "<td>" + rs.getString("TIME") + "</td> "+
 			  "</tr>");
 		i++;
 	}

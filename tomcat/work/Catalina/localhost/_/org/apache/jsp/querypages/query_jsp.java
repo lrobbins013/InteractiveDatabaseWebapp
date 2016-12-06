@@ -10,8 +10,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 
-public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class query_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static java.util.List _jspx_dependants;
@@ -62,14 +63,16 @@ public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("<head>\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("<title>Supplies List</title>\n");
+      out.write("<title>Query</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("<div id=\"searchresult\">\n");
 
-	/***********************************************************
-	 * Returns a table representation of the supplies relation *
-         ***********************************************************/
+	/*********************************************
+	 * Executes an inputed query on the database *
+         *********************************************/
+
+	String queryStr = request.getParameter("queryStr");
 
 	//A handle to the connection to the DBMS.
 
@@ -79,29 +82,34 @@ public final class supplies_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 	Statement statement;
 
-	String username = "lrobbins013";
-	String password = "a1106";
+	String username = "levihill";
+	String password = "a3012";
 	String connectString = "jdbc:oracle:thin:@aloe.cs.arizona.edu:1521:oracle";
 
 
 	Class.forName("oracle.jdbc.OracleDriver");
 	connection = DriverManager.getConnection(connectString, username, password);
 	statement = connection.createStatement();
-	ResultSet rs = statement.executeQuery("select * from levihill.Supplies");
 
-	out.write("<table><tr><th>SUPNAME</th>" +
-   		  "<th>QNTY</th></tr>");
+	ResultSet rs = statement.executeQuery(queryStr);
+	ResultSetMetaData rsmd = rs.getMetaData();
 
-	String qFName=null, qLName=null, qBalance=null;
-	int i = 0;	
-
-	while(rs.next()) {
-		out.write("<tr id=\"tablerow_" + i + "\"> "+
-			  "<td>" + rs.getString("SUPNAME") + "</td> "+
-			  "<td>" + rs.getString("QNTY") + "</td> "+
-			  "</tr>");
-		i++;
+	out.write("<table><tr>");
+	for (int i=1; i <= rsmd.getColumnCount(); i++) {
+		out.write("<th>" + rsmd.getColumnName(i) + "</th>");
 	}
+	out.write("</tr>");
+
+	for(int i=0; rs.next(); i++) {
+
+		out.write("<tr id=\"tablerow_" + i + "\"> ");
+
+		for (int j=1; j <= rsmd.getColumnCount(); j++) {
+			out.write("<td>" + rs.getString(rsmd.getColumnName(j)) + "</td> ");
+		}
+		out.write("</tr>");
+	}
+
 
 	statement.close();
 	connection.close();
