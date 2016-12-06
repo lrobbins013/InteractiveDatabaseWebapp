@@ -71,6 +71,9 @@ public final class payment_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("  <form action=\"update_balance.jsp\">\n");
       out.write("    Payment amount ($): \n");
       out.write("    <input type=\"text\" name=\"amount\"/> <br/>\n");
+      out.write("\n");
+      out.write("    <input type=\"radio\" name=\"description\" value=\"Cash\" checked> Cash<br>\n");
+      out.write("    <input type=\"radio\" name=\"description\" value=\"Credit_Card\"> Credit<br>\n");
       out.write("    ");
 
       out.write("<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/>");

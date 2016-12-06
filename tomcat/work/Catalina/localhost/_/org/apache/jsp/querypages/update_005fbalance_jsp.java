@@ -100,7 +100,7 @@ public final class update_005fbalance_jsp extends org.apache.jasper.runtime.Http
 
 	statement.executeQuery("INSERT INTO levihill.transaction (TRANSID, PATID, DESCRIPTION, AMOUNT) " +
 					"VALUES ((Select MAX(TRANSID)+1  FROM Levihill.transaction), \'" + patID + "\', " +
-							"\'Online payment\', \'" + amount + "\')");
+							"\'" + request.getParameter("description") + "\', \'" + amount + "\')");
 
 	out.write("Payment successful. <br/>");
 	out.write("<form action=\"/login.jsp\">" +

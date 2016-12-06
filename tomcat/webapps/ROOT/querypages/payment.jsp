@@ -15,6 +15,9 @@
   <form action="update_balance.jsp">
     Payment amount ($): 
     <input type="text" name="amount"/> <br/>
+
+    <input type="radio" name="description" value="Cash" checked> Cash<br>
+    <input type="radio" name="description" value="Credit_Card"> Credit<br>
     <%
       out.write("<input type=\"hidden\" name=\"patID\" value=\"" + request.getParameter("patID") + "\"/>");
     %>
