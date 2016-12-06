@@ -1,0 +1,10 @@
+@Account
+@Appointment
+@Employee
+@Laboratory
+@Patient
+@Payment
+@Procedure
+@proSup
+@ServiceLog
+@Supplies
