@@ -12,5 +12,11 @@ VALUES
 (8000,1000,'Cleaning',-50 );
 
 
+INSERT INTO levihill.Transaction
+( transID,patID,description,amount )
+VALUES
+(8001,1000,'Credit_Card',50 );
+
+
 GRANT SELECT ON levihill.Transaction TO PUBLIC;
 
